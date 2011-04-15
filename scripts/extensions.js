@@ -1,3 +1,4 @@
+// Generally useful type augmentations
 define(function()
 {
 	return function() {

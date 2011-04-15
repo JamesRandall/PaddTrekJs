@@ -1,13 +1,13 @@
-define(["model/galaxyFactory", "model/rules"], function(galaxyFactory, rulesParam)
+define(["model/galaxyFactory", "model/rules"], function(galaxyFactory, rulesParam) {
 	return function() {
 		var model;
 		model = {
-			galaxy: galaxyFactory.create(),
+			galaxy: galaxyFactory(),
 			rules: rulesParam
 		}
 		
-		model.currentSector = model.galaxy.getSector(Number.random(model.galaxy.width), Number.random(model.galaxy.height));
+		model.currentQuadrant = model.galaxy.getQuadrant(Number.randomInteger(model.galaxy.width), Number.randomInteger(model.galaxy.height));
 
 		return model;	
 	}
-);
+});

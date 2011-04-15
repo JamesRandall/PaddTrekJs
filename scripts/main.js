@@ -1,5 +1,7 @@
-require(["jquery", "userInterface/userInterfaceBuilder", "userInterface/scannerCanvas", "extensions"], function($, uiBuilder,scannerCanvas,extendTypes) {
+require(["jquery", "userInterface/userInterfaceBuilder", "userInterface/scannerCanvas", "extensions", "model/modelFactory"], function($, uiBuilder,scannerCanvas,extendTypes, modelFactory) {
 	extendTypes();
+	
+	var model = modelFactory();
 	
     $(document).ready(function() {
 	    
