@@ -1,4 +1,11 @@
 define(function() {
+	function Sector()
+	{
+		return {
+			stars: [ ]
+		};
+	}
+	
 	return function()
 	{
 		var sectors;
@@ -9,9 +16,7 @@ define(function() {
 		sectors = [];
 		for (index = 0; index < sectorWidth * sectorHeight; index += 1)
 		{
-			var sector = {
-				stars: [ ]
-			};
+			var sector = new Sector();
 			
 			sectors.push(sector);
 		}
@@ -20,7 +25,11 @@ define(function() {
 			width: sectorWidth,
 			height: sectorHeight,
 			getSector: function(x, y) {
-				return sectors[y * width + x];
+				if (x >= this.width || y >= this.height || x < 0 || y < 0)
+				{
+					throw new Error("getSector coordinates out of range");
+				}
+				return sectors[y * this.width + x];
 			},
 			units: []
 		};

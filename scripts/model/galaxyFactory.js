@@ -1,4 +1,4 @@
-define(["model/sectorFactory"], function(sectorFactory) {	
+define(["model/quadrantFactory"], function(quadrantFactory) {	
 	return function() {
 		var quadrants;
 		var index;
@@ -10,7 +10,7 @@ define(["model/sectorFactory"], function(sectorFactory) {
 		quadrants = [];
 		for (index = 0; index < galaxyWidth * galaxyHeight; index += 1)
 		{
-			quadrants.push(sectorFactory());
+			quadrants.push(quadrantFactory());
 		}
 		
 		return {
