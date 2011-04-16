@@ -1,27 +1,12 @@
-div.game
-{
-	background-color: black;
-	background-image: url('images/background.png');
-	width: 1024px;
-	height: 768px;
-}
+div.game {
+  background-color: black;
+  background-image: url("images/background.png");
+  width: 1024px;
+  height: 768px;
+  padding: 0; }
 
-table
-{
-	border: 0px;
-}
-
-tr
-{
-	padding: 0px;
-	margin: 0px;
-}
-
-td.scannerCell
-{
-	width: 64px;
-	height: 64px;
-	border: 1px white solid;
-	padding: 0px;
-	margin: 0px;
-}
+div.panel {
+  border: 1px solid white;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.6); }

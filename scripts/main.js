@@ -1,4 +1,4 @@
-require(["jquery", "userInterface/userInterfaceBuilder", "userInterface/scannerCanvas", "extensions/jsExtensions", "extensions/htmlExtensions", "model/modelFactory"], function($, uiBuilder,scannerCanvas,jsExtensions,htmlExtensions, modelFactory) {
+require(["jquery", "views/userInterfaceBuilder", "views/scannerCanvas", "extensions/jsExtensions", "extensions/htmlExtensions", "model/modelFactory"], function($, uiBuilder,scannerCanvas,jsExtensions,htmlExtensions, modelFactory) {
 	jsExtensions();
 	htmlExtensions();
 	
