@@ -1,11 +1,12 @@
-require(["jquery", "userInterface/userInterfaceBuilder", "userInterface/scannerCanvas", "extensions", "model/modelFactory"], function($, uiBuilder,scannerCanvas,extendTypes, modelFactory) {
-	extendTypes();
+require(["jquery", "userInterface/userInterfaceBuilder", "userInterface/scannerCanvas", "extensions/jsExtensions", "extensions/htmlExtensions", "model/modelFactory"], function($, uiBuilder,scannerCanvas,jsExtensions,htmlExtensions, modelFactory) {
+	jsExtensions();
+	htmlExtensions();
 	
 	var model = modelFactory();
 	
     $(document).ready(function() {
 	    
 		uiBuilder.buildMainScreen();
-		scannerCanvas.render();
+		scannerCanvas.render(model.currentQuadrant);
     });
 });

@@ -1,11 +1,13 @@
 define(function() {
 	return function()
 	{
-		var quadrants;
+		var sectors;
 		var index;
+		var sectorWidth = 8;
+		var sectorHeight = 8;
 		
 		sectors = [];
-		for (index = 0; index < 8 * 8; index += 1)
+		for (index = 0; index < sectorWidth * sectorHeight; index += 1)
 		{
 			var sector = {
 				stars: [ ]
@@ -15,9 +17,12 @@ define(function() {
 		}
 		
 		return {
+			width: sectorWidth,
+			height: sectorHeight,
 			getSector: function(x, y) {
-				return quadrants[y * width + x];
-			}
+				return sectors[y * width + x];
+			},
+			units: []
 		};
 	}	
 });
