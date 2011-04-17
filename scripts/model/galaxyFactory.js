@@ -17,6 +17,10 @@ define(["model/quadrantFactory"], function(quadrantFactory) {
 			width: galaxyWidth,
 			height: galaxyHeight,
 			getQuadrant: function(x, y) {
+				if (x >= this.width || y >= this.height || x < 0 || y < 0)
+				{
+					throw new Error("getQuadrant coordinates out of range");
+				}
 				return quadrants[y * galaxyWidth + x];
 			}	
 		};

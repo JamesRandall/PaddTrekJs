@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>galaxyFactory unit tests</title>
+	<script src="../../scripts/jquery-1.5.2.min.js"></script>
+	<link rel="stylesheet" href="../qunit.css" type="text/css" />
+	<script type="text/javascript" src="../qunit.js"></script>
+	<script src="../stubs/define.js" type="text/javascript" charset="utf-8"></script>
+	<!-- include our module -->
+	<script type="text/javascript" src="../../scripts/model/galaxyFactory.js"></script>
+	<script>
+		// stubs
+		function quadrantFactoryStub()
+		{
+			return {}
+		}
+	
+		$(document).ready(function(){
+			test("Factory creates galaxy", function() {
+				var galaxy = moduleFunction(quadrantFactoryStub)();
+				ok(galaxy, "Factory did not create a quadrant");
+			});
+			
+			test("Width is correct", function() {
+				var galaxy = moduleFunction(quadrantFactoryStub)();
+				equals(8, galaxy.width, "We expect the width to be 8");
+			});
+
+			test("Height is correct", function() {
+				var galaxy = moduleFunction(quadrantFactoryStub)();
+				equals(8, galaxy.height, "We expect the height to be 8");
+			});
+
+			test("Sectors are all created", function() {
+				var galaxy = moduleFunction(quadrantFactoryStub)();
+				var x;
+				var y;
+				var sector;
+	
+				for (x = 0; x < 8; x++)	
+				{
+					for (y = 0; y < 8; y++)
+					{
+						quadrant = galaxy.getQuadrant(x,y);
+						ok(quadrant != null, "Quadrant is null");
+					}
+				}
+			});
+
+			test("Out of range quadrant (for x axis) returns null", function() {
+				var galaxy = moduleFunction(quadrantFactoryStub)();
+				raises(function() {
+					galaxy.getQuadrant(8,0);
+				}, "getQuadrant did not throw error when x out of range");	
+			});
+
+			test("Out of range quadrant (for y axis) returns null", function() {
+				var galaxy = moduleFunction(quadrantFactoryStub)();
+				raises(function() {
+					galaxy.getQuadrant(0,8);
+				}, "getQuadrant did not throw error when y out of range");	
+			});
+		});
+	</script>
+</head>
+<body>
+  <h1 id="qunit-header">QUnit example</h1>
+ <h2 id="qunit-banner"></h2>
+ <div id="qunit-testrunner-toolbar"></div>
+ <h2 id="qunit-userAgent"></h2>
+ <ol id="qunit-tests"></ol>
+ <div id="qunit-fixture">test markup, will be hidden</div>
+</body>
+</html>
