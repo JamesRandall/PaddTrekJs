@@ -48,6 +48,5 @@ define(function()
 		    dash = !dash;
 		  }
 		};
-		
 	};
 });

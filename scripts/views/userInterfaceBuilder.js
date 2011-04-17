@@ -46,13 +46,20 @@ define(["jquery", "metrics"], function($, metrics) {
 					      metrics.weaponsPanelHeight);
 	}
 	
+	function buildCanvas()
+	{
+		var canvas = $('<canvas id="gameCanvas" width="' + metrics.gameWidth + '" height="' + metrics.gameHeight + '">');
+		return canvas;
+	}
+	
 	return {
 		buildMainScreen: function() {
 			var gameUi = $('<div>').addClass("game");
-			gameUi.append(buildScanner());
-			gameUi.append(buildEnergyPanel());
-			gameUi.append(buildShieldsPanel());
-			gameUi.append(buildWeaponsPanel());
+			//gameUi.append(buildScanner());
+			//gameUi.append(buildEnergyPanel());
+			//gameUi.append(buildShieldsPanel());
+			//gameUi.append(buildWeaponsPanel());
+			gameUi.append(buildCanvas());
 			gameUi.appendTo($("#paddTrekContainer"));
 			return gameUi;
 		}
