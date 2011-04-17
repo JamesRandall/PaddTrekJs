@@ -5,8 +5,8 @@ div.game {
   height: 768px;
   padding: 0; }
 
-div.panel {
-  border: 1px solid white;
-  margin: 0;
-  padding: 0;
-  background-color: rgba(0, 0, 0, 0.6); }
+div#browserNotSupported {
+  display: none;
+  background-color: #eee;
+  border: 1px solid black;
+  padding: 1em; }
