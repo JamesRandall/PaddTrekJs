@@ -1,6 +1,6 @@
-define(["../../metrics", "../../canvas/sceneObject"], function(metrics, sceneObjectFactory) {
+define(["../../metrics", "../../canvas/sceneObject","views/sceneObjects/units/playerSceneObject"], function(metrics, sceneObjectFactory,playerSceneObject) {
 	return function(x, y, currentQuadrant) {
-		var sceneObject = sceneObjectFactory.create(x,y);
+		var sceneObject = sceneObjectFactory.create(x, y, metrics.shortRange.scannerWidth, metrics.shortRange.scannerHeight);
 		sceneObject.quadrant = currentQuadrant;
 		sceneObject.renderSceneObject = function(context) {
 			var cellWidth;
@@ -34,6 +34,9 @@ define(["../../metrics", "../../canvas/sceneObject"], function(metrics, sceneObj
 		
 			context.stroke();
 		};
+		
+		sceneObject.addSceneObject(playerSceneObject(0,0));
+		
 		return sceneObject;
 	};
 });

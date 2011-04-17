@@ -1,6 +1,6 @@
 define(["../../metrics", "../../canvas/sceneObject"], function(metrics, sceneObjectFactory) {
 	return function(x, y) {
-		var sceneObject = sceneObjectFactory.create(x,y);
+		var sceneObject = sceneObjectFactory.create(x, y, metrics.shortRange.shieldsPanelWidth, metrics.shortRange.shieldsPanelHeight);
 		sceneObject.renderSceneObject = function(context) {
 			var x;
 			var y;
